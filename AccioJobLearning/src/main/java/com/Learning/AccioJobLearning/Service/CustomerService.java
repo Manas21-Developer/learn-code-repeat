@@ -5,6 +5,8 @@ import com.Learning.AccioJobLearning.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CustomerService {
 
@@ -13,5 +15,13 @@ public class CustomerService {
     public  String addCustomer(Customer customer){
         customerRepo.save(customer); // this is return by hibernate
         return "Customer add successfully ";
+    }
+
+    public Customer getCustomerById(int id) {
+        Optional<Customer> customerOptional = customerRepo.findById(id); // the benefit of the optional is there are any id is invaild so we can throw and error or give id if that is possible
+        if(customerOptional.isEmpty()){
+            throw new RuntimeException("Invalid Customer id");
+        }
+        return customerOptional.get();
     }
 }
