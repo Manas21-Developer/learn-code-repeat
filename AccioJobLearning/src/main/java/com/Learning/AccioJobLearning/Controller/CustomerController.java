@@ -33,6 +33,11 @@ public class CustomerController {
 
 
     //update the customer put
+//    @PutMapping
+//    public ResponseEntity updateCustomerById(@RequestBody("id") int id){
+//        Customer customer = customerService.updateCustomerById(id);
+//        return new ResponseEntity(customer ,HttpStatus.OK);
+//    }
 
     // delete the customer delete
 

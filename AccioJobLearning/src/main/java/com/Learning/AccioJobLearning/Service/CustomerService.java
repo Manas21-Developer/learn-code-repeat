@@ -24,4 +24,12 @@ public class CustomerService {
         }
         return customerOptional.get();
     }
+
+    public Customer updateCustomerById(int id) {
+        Optional<Customer> customerOptional = customerRepo.findById(id);
+        if(customerOptional.isEmpty()){
+            throw new RuntimeException("Invalid id ");
+        }
+        return customerOptional.get();
+    }
 }
