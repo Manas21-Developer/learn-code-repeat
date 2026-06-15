@@ -1,0 +1,37 @@
+package com.Learning.AccioJobLearning.Controller;
+
+import com.Learning.AccioJobLearning.Entity.Customer;
+import com.Learning.AccioJobLearning.Service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+@RequestMapping("api/v1/customer") // it help to make this as a end point of each api we use here
+public class CustomerController {
+
+
+    @Autowired
+    CustomerService customerService;
+    // create customer post
+    @PostMapping
+    public ResponseEntity addCustomer(@RequestBody Customer customer)// request body is use take object as parametter
+    {
+        String response = customerService.addCustomer(customer);
+        return new ResponseEntity(response, HttpStatus.CREATED);
+    }
+
+
+    // read customer get
+
+    //update the customer put
+
+    // delete the customer delete
+
+
+}
