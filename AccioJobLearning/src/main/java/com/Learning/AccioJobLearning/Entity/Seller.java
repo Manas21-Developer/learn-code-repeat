@@ -19,10 +19,10 @@ public class Seller {
     @Id
     private int sellerId;
 
-    private int sellerName;
+    private String sellerName;
 
     @Column(nullable = false)
-    private Integer mobNo;
+    private Long mobNo;
 
     @Column(unique = true)
     private String mail;
