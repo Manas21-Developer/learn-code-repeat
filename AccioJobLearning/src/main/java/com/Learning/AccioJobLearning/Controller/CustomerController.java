@@ -1,6 +1,7 @@
 package com.Learning.AccioJobLearning.Controller;
 
 import com.Learning.AccioJobLearning.Entity.Customer;
+import com.Learning.AccioJobLearning.Entity.Seller;
 import com.Learning.AccioJobLearning.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -40,6 +41,10 @@ public class CustomerController {
 //    }
 
     // delete the customer delete
-
+    @DeleteMapping("Delete/{id}")
+    public ResponseEntity<String> deleteCustomerById(@PathVariable int id){
+        String customer = customerService.deleteCustomerById(id);
+        return new ResponseEntity(customer,HttpStatus.OK);
+    }
 
 }

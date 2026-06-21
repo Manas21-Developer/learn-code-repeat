@@ -32,4 +32,13 @@ public class CustomerService {
         }
         return customerOptional.get();
     }
+
+    public String deleteCustomerById(int id) {
+        Optional<Customer> optionalCustomer = customerRepo.findById(id);
+        if (optionalCustomer.isEmpty()){
+            throw new RuntimeException("Customer not found of this id :- " +id);
+        }
+        customerRepo.deleteById(id);
+        return "Customer delete Successfully ";
+    }
 }

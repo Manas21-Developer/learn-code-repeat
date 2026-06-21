@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("api/v1/seller")
+@RequestMapping("api/v1/seller") // to provide common end point
 public class SellerController {
 
 

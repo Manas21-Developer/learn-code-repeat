@@ -20,7 +20,7 @@ public class SellerService {
     }
 
     public Seller getSellerById(int id) {
-        Optional<Seller> sellerOptional = sellerRepo.findById(id);
+        Optional<Seller> sellerOptional = sellerRepo.findById(id); // optional help to remove run time error
         if(sellerOptional.isEmpty()) {
             throw new RuntimeException("Invalid id seller not found");
         }
