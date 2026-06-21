@@ -23,4 +23,11 @@ public class SellerController {
         String response = sellerService.addSeller(seller);
         return new ResponseEntity(response, HttpStatus.CREATED);
     }
+
+    // get seller by id
+    @GetMapping
+    public ResponseEntity getSellerById(@RequestParam("id") int id) {
+        Seller seller = sellerService.getSellerById(id);
+        return new ResponseEntity(seller , HttpStatus.OK);
+    }
 }
