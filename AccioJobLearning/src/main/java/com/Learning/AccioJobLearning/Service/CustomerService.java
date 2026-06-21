@@ -5,6 +5,7 @@ import com.Learning.AccioJobLearning.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -40,5 +41,9 @@ public class CustomerService {
         }
         customerRepo.deleteById(id);
         return "Customer delete Successfully ";
+    }
+
+    public List<Customer> gerAllCustomer() {
+        return customerRepo.findAll();
     }
 }

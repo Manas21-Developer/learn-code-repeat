@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("api/v1/customer") // it help to make this as a end point of each api we use here
@@ -32,6 +34,12 @@ public class CustomerController {
         return new ResponseEntity(customer ,HttpStatus.OK);
     }
 
+    // find all customer
+    @GetMapping("All")
+    public ResponseEntity getAllCustomer(){
+        List<Customer> customer = customerService.gerAllCustomer();
+        return new ResponseEntity(customer,HttpStatus.OK);
+    }
 
     //update the customer put
 //    @PutMapping

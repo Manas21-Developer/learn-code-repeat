@@ -31,6 +31,8 @@ public class SellerController {
         return new ResponseEntity(seller , HttpStatus.OK);
     }
 
+    // get
+
     // Delete Seller by id
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteSellerById(@PathVariable int id){
