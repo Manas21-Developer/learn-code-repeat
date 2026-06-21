@@ -30,4 +30,11 @@ public class SellerController {
         Seller seller = sellerService.getSellerById(id);
         return new ResponseEntity(seller , HttpStatus.OK);
     }
+
+    // Delete Seller by id
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> deleteSellerById(@PathVariable int id){
+        String seller = sellerService.deleteById(id);
+        return new ResponseEntity<>(seller,HttpStatus.OK);
+    }
 }

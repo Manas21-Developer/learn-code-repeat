@@ -26,4 +26,13 @@ public class SellerService {
         }
         return sellerOptional.get();
     }
+
+    public String deleteById(int id) {
+        Optional<Seller> sellerOptional = sellerRepo.findById(id);
+        if(sellerOptional.isEmpty()){
+            throw new RuntimeException("Seller not found id is invalid :- " + id);
+        }
+        sellerRepo.deleteById(id);
+        return "Seller delete successfully";
+    }
 }
