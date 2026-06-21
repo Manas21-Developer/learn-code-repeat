@@ -46,4 +46,16 @@ public class CustomerService {
     public List<Customer> gerAllCustomer() {
         return customerRepo.findAll();
     }
+
+    public Customer updateAge(int id,
+                                int newAge) {
+        Optional<Customer> customerOptional = customerRepo.findById(id);
+        if (customerOptional.isEmpty()){
+            throw new RuntimeException("this id is not in the db not able to change the age ");
+        }
+        Customer customer = customerOptional.get();
+
+        customer.setAge(newAge);
+        return customerRepo.save(customer);
+    }
 }

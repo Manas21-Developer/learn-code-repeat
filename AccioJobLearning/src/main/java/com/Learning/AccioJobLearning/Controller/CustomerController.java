@@ -41,12 +41,13 @@ public class CustomerController {
         return new ResponseEntity(customer,HttpStatus.OK);
     }
 
-    //update the customer put
-//    @PutMapping
-//    public ResponseEntity updateCustomerById(@RequestBody("id") int id){
-//        Customer customer = customerService.updateCustomerById(id);
-//        return new ResponseEntity(customer ,HttpStatus.OK);
-//    }
+    // Update Customer by age
+    @PutMapping("updateAge/{id}/{newAge}")
+    public ResponseEntity updateCustomerByAge(@PathVariable int id,
+                                              @PathVariable int newAge){
+        Customer customer= customerService.updateAge(id,newAge);
+        return new ResponseEntity(customer , HttpStatus.OK);
+    }
 
     // delete the customer delete
     @DeleteMapping("Delete/{id}")
