@@ -4,10 +4,13 @@ package com.Learning.AccioJobLearning.Controller;
 import com.Learning.AccioJobLearning.Entity.Seller;
 import com.Learning.AccioJobLearning.Service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchTransactionManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -31,7 +34,12 @@ public class SellerController {
         return new ResponseEntity(seller , HttpStatus.OK);
     }
 
-    // get
+    // get all seller
+    @GetMapping("All")
+    public ResponseEntity getAllSeller(){
+        List<Seller> seller = sellerService.getAllSeller();
+        return new ResponseEntity<>(seller,HttpStatus.OK);
+    }
 
     // Delete Seller by id
     @DeleteMapping("delete/{id}")

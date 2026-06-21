@@ -4,6 +4,7 @@ import com.Learning.AccioJobLearning.Entity.Seller;
 import com.Learning.AccioJobLearning.Repository.SellerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.*;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.swing.text.html.Option;
@@ -34,5 +35,9 @@ public class SellerService {
         }
         sellerRepo.deleteById(id);
         return "Seller delete successfully";
+    }
+
+    public List<Seller> getAllSeller() {
+        return sellerRepo.findAll();
     }
 }
