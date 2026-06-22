@@ -41,7 +41,7 @@ public class CustomerController {
         return new ResponseEntity(customer,HttpStatus.OK);
     }
 
-    // Update Customer by age
+    // Update Customer  age
     @PutMapping("updateAge/{id}/{newAge}")
     public ResponseEntity updateCustomerByAge(@PathVariable int id,
                                               @PathVariable int newAge){

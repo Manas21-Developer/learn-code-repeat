@@ -41,6 +41,15 @@ public class SellerController {
         return new ResponseEntity<>(seller,HttpStatus.OK);
     }
 
+    // update seller mobNo
+    @PutMapping("/update/{id}/{mobNo}")
+    public ResponseEntity updatemobNoOfSeller(@PathVariable int id,
+                                            @PathVariable Long mobNo){
+        Seller seller = sellerService.changeSellermobNo(id , mobNo);
+        return  new ResponseEntity(seller,HttpStatus.OK);
+    }   
+        
+
     // Delete Seller by id
     @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteSellerById(@PathVariable int id){

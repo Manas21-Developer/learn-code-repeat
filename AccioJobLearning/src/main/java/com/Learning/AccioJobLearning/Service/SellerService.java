@@ -40,4 +40,16 @@ public class SellerService {
     public List<Seller> getAllSeller() {
         return sellerRepo.findAll();
     }
+
+    public Seller changeSellermobNo(int id , Long mobNo){
+        Optional<Seller> optionalSeller = sellerRepo.findById(id);
+
+        if (optionalSeller.isEmpty()){
+            throw new RuntimeException("Id not found can not able to change the mobNo");
+        }
+        Seller seller = optionalSeller.get();
+
+        seller.setMobNo(mobNo);
+        return sellerRepo.save(seller);
+    }
 }
